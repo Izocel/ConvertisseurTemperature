@@ -4,9 +4,10 @@ using System.Text;
 internal class Program
 {
     private static string SourceSymbol = "";
-    private static double SourceTemperature;
-    private static string? ConvertedSymbol = "";
-    private static double? ConvertedTemperature;
+    private static double SourceTemperature = 0;
+    private static bool IsTemperatureAssigned = true;
+    private static string ConvertedSymbol = "";
+    private static double ConvertedTemperature = 0;
 
     private static void Main(string[] args)
     {
@@ -14,7 +15,7 @@ internal class Program
         ConvertArguments();
         OutputConversion();
 
-        System.Console.WriteLine("\n\nPress Any Key To Exit: ");
+        System.Console.WriteLine("\nPress Any Key To Exit:\n");
         Console.Read();
     }
 
@@ -27,10 +28,14 @@ internal class Program
     /// </remarks>
     private static void ParseArguments(string[] args)
     {
-        foreach (string argument in args)
-            ParseArgumentKeyValue(argument.Split('-'));
+        for (int i = 0; i < args.Length; i += 2)
+        {
+            string name = args[i];
+            string value = i + 1 < args.Length ? args[i + 1] : "";
+            ParseArgumentKeyValue([name, value]);
+        }
 
-        if (double.TryParse(SourceTemperature.ToString(), out double nil))
+        if (!IsTemperatureAssigned)
             ParseArgumentKeyValue(["-t", ""]);
 
         if (!IsValidUnitSymbol(SourceSymbol))
@@ -73,17 +78,17 @@ internal class Program
     }
 
     /// <summary>
-    /// Handles the input for the temperature value, prompting the user until a valid double is entered.
+    /// Handles the input for the base temperature value, prompting the user until a valid numeric value is entered.
     /// </summary>
-    /// <param name="value">An optional initial temperature value to parse.</param>
+    /// <param name="value">An optional initial temperature value to validate, defaulting to null.</param>
     private static void HandleTemperatureInput(string? value = null)
     {
-        bool success = double.TryParse(value, out SourceTemperature);
+        IsTemperatureAssigned = double.TryParse(value, out SourceTemperature);
 
-        while (!success)
+        while (!IsTemperatureAssigned)
         {
-            Console.Write("Base temperature value: ");
-            success = double.TryParse(Console.ReadLine(), out SourceTemperature);
+            Console.Write("Base temperature value (0): ");
+            IsTemperatureAssigned = double.TryParse(Console.ReadLine(), out SourceTemperature);
         }
     }
 
