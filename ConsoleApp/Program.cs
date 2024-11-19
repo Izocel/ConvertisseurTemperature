@@ -125,15 +125,11 @@ internal class Program
     /// <returns>True if the symbol is valid; otherwise, false.</returns>
     private static bool IsValidUnitSymbol(string? symbol)
     {
-        switch (symbol?.ToUpper())
+        return (symbol?.ToUpper()) switch
         {
-            case "C":
-            case "F":
-                return true;
-
-            default:
-                return false;
-        }
+            "C" or "F" => true,
+            _ => false,
+        };
     }
 
     /// <summary>
@@ -145,17 +141,12 @@ internal class Program
     /// </exception>
     private static void ConvertArguments()
     {
-        switch (SourceSymbol.ToUpper())
+        ConvertedTemperature = SourceSymbol.ToUpper() switch
         {
-            case "C":
-                ConvertedTemperature = (SourceTemperature - 32) / 1.8;
-                break;
-            case "F":
-                ConvertedTemperature = SourceTemperature * 1.8 + 32;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(SourceSymbol);
-        }
+            "C" => (SourceTemperature - 32) / 1.8,
+            "F" => SourceTemperature * 1.8 + 32,
+            _ => throw new ArgumentOutOfRangeException(SourceSymbol),
+        };
     }
 
     /// <summary>
