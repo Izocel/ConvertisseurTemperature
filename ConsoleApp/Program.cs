@@ -92,16 +92,13 @@ internal class Program
         }
     }
 
-    /// <summary>
-    /// Handles the input for the temperature unit, prompting the user until a valid unit symbol ('C' or 'F') is entered.
-    /// </summary>
-    /// <param name="value">An optional initial unit symbol to validate, defaulting to "nil".</param>
-    private static void HandleUnitInput(string? value = "nil")
+
+    private static void HandleUnitInput(string value = "")
     {
         while (!IsValidUnitSymbol(value))
         {
             Console.Write("Base temperature unit (C or F): ");
-            value = Console.ReadLine().ToUpper();
+            value = Console.ReadLine()?.ToUpper() ?? "";
         }
 
         SourceSymbol = value.ToUpper();
