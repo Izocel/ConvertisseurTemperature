@@ -195,7 +195,7 @@ internal class Program
         SB.Append("\n\nOPTIONS");
         SB.Append("\n-h, --help         Affiche le présent manuel d'utilisation et quitte le programme.");
         SB.Append("\n-t, --temperature  Valeur de température à convertir.");
-        SB.Append("\n-u, --unit        Unité de température entrée («C» pour Celcisus ou «F» pour Fahrenheit).");
+        SB.Append("\n-u, --unit         Unité de température entrée («C» pour Celcisus ou «F» pour Fahrenheit).");
 
         Console.WriteLine(SB.ToString() + "\n");
     }
