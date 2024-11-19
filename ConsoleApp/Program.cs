@@ -87,7 +87,7 @@ internal class Program
 
         while (!IsTemperatureAssigned)
         {
-            Console.Write("Base temperature value (0): ");
+            Console.Write("Base temperature value: ");
             IsTemperatureAssigned = double.TryParse(Console.ReadLine(), out SourceTemperature);
         }
     }
