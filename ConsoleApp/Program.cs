@@ -1,6 +1,16 @@
 ﻿
 using System.Text;
 
+
+/// <summary>
+/// Represents the main entry point for the ConsoleApp, which converts temperatures
+/// between Celsius and Fahrenheit based on command-line arguments.
+/// </summary>
+/// <remarks>
+/// The program parses command-line arguments to determine the temperature value and unit,
+/// performs the conversion, and outputs the result. It also provides help information
+/// when requested.
+/// </remarks>
 internal class Program
 {
     private static string SourceSymbol = "";
@@ -92,7 +102,10 @@ internal class Program
         }
     }
 
-
+    /// <summary>
+    /// Handles the input for the base temperature unit, prompting the user until a valid unit symbol ('C' or 'F') is entered.
+    /// </summary>
+    /// <param name="value">An optional initial unit symbol to validate, defaulting to an empty string.</param>
     private static void HandleUnitInput(string value = "")
     {
         while (!IsValidUnitSymbol(value))
