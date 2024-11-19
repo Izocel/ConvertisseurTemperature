@@ -1,6 +1,6 @@
 {
     "editor.rulers": [120],
-    "dotnet.defaultSolution": "ConvertisseurTemperature.sln",
+    "dotnet.defaultSolution": "ConsoleApp.sln",
     "cSpell.dictionaries": [
         "en",
         "fr"

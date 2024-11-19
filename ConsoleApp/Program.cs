@@ -159,7 +159,7 @@ internal class Program
     }
 
     /// <summary>
-    /// Displays the help information for the ConvertisseurTemperature program.
+    /// Displays the help information for the ConsoleApp program.
     /// </summary>
     /// <remarks>
     /// The help includes the program name, synopsis, description, and available options.
@@ -172,7 +172,7 @@ internal class Program
         SB.Append("\nConvertisseurTempérature");
 
         SB.Append("\n\nSYNOPSIS");
-        SB.Append("\nConvertisseurTemperature [OPTIONS...]");
+        SB.Append("\nConsoleApp [OPTIONS...]");
 
         SB.Append("\n\nDESCRIPTION");
         SB.Append("\nConvertit une température en °C si entrée en °F et vice-versa.");
