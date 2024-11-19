@@ -15,8 +15,8 @@ internal class Program
         ConvertArguments();
         OutputConversion();
 
-        System.Console.WriteLine("\nPress Any Key To Exit:\n");
-        Console.Read();
+        System.Console.WriteLine("\nPress Any Key To Exit:");
+        Console.ReadLine();
     }
 
     /// <summary>
@@ -71,9 +71,9 @@ internal class Program
                 return;
 
             default:
-                ArgumentOutOfRangeException e = new(nameof(name));
-                PrintHelp(e.Message);
-                throw e;
+                ArgumentOutOfRangeException e = new(name);
+                PrintHelp($"\n{e.Message}\n");
+                return;
         }
     }
 
@@ -144,7 +144,7 @@ internal class Program
                 ConvertedTemperature = SourceTemperature * 1.8 + 32;
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(SourceSymbol));
+                throw new ArgumentOutOfRangeException(SourceSymbol);
         }
     }
 
@@ -187,6 +187,6 @@ internal class Program
         SB.Append("\n-t, --temperature  Valeur de température à convertir.");
         SB.Append("\n-u, --unit        Unité de température entrée («C» pour Celcisus ou «F» pour Fahrenheit).");
 
-        Console.WriteLine(SB.ToString());
+        Console.WriteLine(SB.ToString() + "\n");
     }
 }
