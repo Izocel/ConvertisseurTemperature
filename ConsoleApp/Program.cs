@@ -82,7 +82,10 @@ internal class Program
 
             default:
                 ArgumentOutOfRangeException e = new(name);
-                PrintHelp($"\n{e.Message}\n");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\n{e.Message}");
+                Console.ResetColor();
+                PrintHelp();
                 return;
         }
     }
