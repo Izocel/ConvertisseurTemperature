@@ -5,7 +5,7 @@ internal class Program
 {
     private static string SourceSymbol = "";
     private static double SourceTemperature = 0;
-    private static bool IsTemperatureAssigned = true;
+    private static bool IsTemperatureAssigned = false;
     private static string ConvertedSymbol = "";
     private static double ConvertedTemperature = 0;
 
