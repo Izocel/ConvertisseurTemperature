@@ -22,7 +22,7 @@ internal class Program
     private static void Main(string[] args)
     {
         ParseArguments(args);
-        ConvertArguments();
+        ConvertTemperature();
         OutputConversion();
 
         System.Console.WriteLine("\nPress Any Key To Exit:");
@@ -142,7 +142,7 @@ internal class Program
     /// <exception cref="ArgumentOutOfRangeException">
     /// Thrown when the source unit symbol is not recognized as 'C' or 'F'.
     /// </exception>
-    private static void ConvertArguments()
+    private static void ConvertTemperature()
     {
         ConvertedTemperature = SourceSymbol.ToUpper() switch
         {
